@@ -9,11 +9,11 @@ First clone the repository from Github and switch to the new directory:
     $ cd {{ project_name }} 
     
 # Client
-    $ cd server
+    $ cd client
     $ mpm install
     $ node app.js 
     
 # Server
-    $ cd client
+    $ cd server
     $ npm install
     $ npm start

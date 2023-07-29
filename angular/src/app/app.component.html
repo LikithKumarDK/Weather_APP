@@ -1,0 +1,52 @@
+<div class="App">
+  <div class="container">
+    <div>
+      <h1>Weather App</h1>
+    </div>
+    <form id="content" autoComplete="off">
+      <input type="text" name="input" class="Search-box" (change)="onInputChange($event)" />
+      <span></span>
+    </form>
+    <button class="search_btn" (click)="getWeatherData(storedValue)">
+      Search
+    </button>
+    <div id="card" class="weather">
+      <div class='loading_view' *ngIf="isLoading; else weatherBlock">
+        <div class="loading">
+        </div>
+      </div>
+      <ng-template #weatherBlock>
+        <div *ngIf="!isLoading && !error; else errorBlock">
+          <div class="details">
+            <div class="temp">
+              {{ temperature }}<span>&deg;</span>
+            </div>
+            <div class="right">
+              <div id="summary">{{ desc }}</div>
+              <div style="font-weight: bold; margin-top: '4px';">{{ name }}</div>
+            </div>
+          </div>
+          <div class="weather_img_view">
+            <img class="weather_img" alt="weather" [src]="'assets/images/' + wIcon + '.svg'" />
+          </div>
+          <div class="infos">
+            <div class="weather_other_details_view">
+              <div class="">Humidity - {{ humidity }}%</div>
+            </div>
+            <div class="weather_other_details_view">
+              <div class="">Visibility - {{ visibility }} km</div>
+            </div>
+            <div class="weather_other_details_view">
+              <div class="">Wind Speed - {{ windSpeed }} km</div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #errorBlock>
+        <div class='not_found'>
+          Not Found !!!
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

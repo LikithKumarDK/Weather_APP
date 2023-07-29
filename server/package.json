@@ -1,5 +1,5 @@
 {
-  "name": "node-server",
+  "name": "React-Weather-App",
   "version": "1.0.0",
   "description": "Hitting weather API",
   "main": "app.js",

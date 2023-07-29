@@ -1,0 +1,196 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  position: relative;
+  background: #eee;
+}
+
+#card {
+  box-shadow: 9px 7px 40px -6px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  width: 350px;
+  padding: 25px;
+  height: 400px;
+  min-height: 300px;
+  margin: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+#card .details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: color 2s ease;
+}
+
+#card .details .right {
+  text-align: right;
+}
+
+#card .details #date {
+  margin: 4px 0;
+}
+
+#card .details #summary {
+  font-weight: 600;
+  font-size: 21px;
+  text-transform: uppercase;
+}
+
+#card .details .temp {
+  font-size: 60px;
+  line-height: 60px;
+}
+
+#card .details .temp span {
+  font-size: 31px;
+  font-weight: bold;
+  line-height: 30px;
+  vertical-align: top;
+  margin-left: 5px;
+}
+
+.weather {
+  background-color: darkturquoise;
+  transition: background-color 2s ease;
+}
+
+.Search-box {
+  margin: 0 12px;
+  margin-top: 1vh;
+  padding: 8px 48px;
+  height: 35px;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 3px 12px -1px rgba(0, 0, 0, 0.3);
+  transition: all 0.15s ease-in-out;
+}
+
+.Search-box:focus {
+  flex: 1 0 90%;
+  outline: 0;
+}
+
+.Search-box:focus+.Search-label {
+  transform: translateX(12px);
+}
+
+.search_btn {
+  font-family: "Gilroy ExtraBold", system-ui, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 1px;
+  font-size: 17px;
+  background: #d8aaae;
+  background: burlywood;
+  color: #000;
+  font-weight: normal;
+  appearance: none;
+  border: none;
+  border-radius: 17px;
+  margin-top: -35px;
+  height: 36px;
+  margin-left: 170px;
+  padding: 0 24px;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+.search_btn:hover {
+  background: burlywood;
+  color: whitesmoke;
+}
+
+.search_btn:active {
+  background: #d5bec0;
+  transform: perspective(250px) scale3d(1, 1, 1) translateY(5%) !important;
+}
+
+.infos {
+  font-family: "Lato", sans-serif;
+  font-size: 19px;
+  line-height: 29px;
+  font-weight: 600;
+  margin-top: -12vh;
+}
+
+.weather_img_view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather_img {
+  width: 100%;
+  margin-top: -7vh;
+}
+
+.weather_other_details_view {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.weather_other_details_img {
+  width: 14%;
+}
+
+.humidity {
+  margin-left: 9vh;
+}
+
+.visibility_img {
+  width: 14%;
+}
+
+.wind_img {
+  width: 14%;
+}
+
+.loading_view {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid white;
+  border-radius: 50%;
+  border-top-color: black;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.not_found {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
