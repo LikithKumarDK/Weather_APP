@@ -1,11 +1,11 @@
 const express = require('express');
 const axios = require('axios');
+require('dotenv').config();
 const app = express();
-const port = 3001;
 
-const API_KEY = "d37f78971b1063ccf34a287df290899e";
-
-const URL = "https://api.openweathermap.org/data/2.5/";
+const port = process.env.PORT;
+const API_KEY = process.env.WEATHER_HOST_KEY;
+const URL = process.env.WEATHER_HOST_URL;
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -34,7 +34,7 @@ app.get('/getWeatherInfo/city/', async (req, resp) => {
     } catch (err) {
         console.error(`failed city api due to ${err.message}`);
     }
-    
+
 });
 
 app.listen(port, () => {

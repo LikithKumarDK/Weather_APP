@@ -15,32 +15,38 @@ const App = () => {
   const [wicon, setWicon] = useState("");
 
   useEffect(() => {
-    getWeatherData();
+    window.process = {
+      ...window.process,
+    };
+    getWeatherData();    
   }, [])
 
   const getWeatherData = () => {
-    setIsLoading(true);
-    axios({
-      method: "GET",
-      url: `http://localhost:3001/getWeatherInfo/city?city=${city}`
-    })
-      .then((response) => {
-        setTemperature(Math.round(response.data.main.temp - 273.15));
-        setDesc(response.data.weather[0].description);
-        setName(response.data.name);
-        setHumidity(response.data.main.humidity);
-        setVisibility(response.data.visibility / 1000);
-        setWineSpeed(response.data.wind.speed);
-        setWicon(response.data.weather[0].icon);
-        console.log(response);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 2000);
+    const { REACT_APP_API_URL } = process && process?.env;
+    if (REACT_APP_API_URL) {
+      setIsLoading(true);
+      axios({
+        method: "GET",
+        url: `${REACT_APP_API_URL}/getWeatherInfo/city?city=${city}`
       })
-      .catch((error) => {
-        setIsLoading(false);
-        setError(true);
-      });
+        .then((response) => {
+          setTemperature(Math.round(response.data.main.temp - 273.15));
+          setDesc(response.data.weather[0].description);
+          setName(response.data.name);
+          setHumidity(response.data.main.humidity);
+          setVisibility(response.data.visibility / 1000);
+          setWineSpeed(response.data.wind.speed);
+          setWicon(response.data.weather[0].icon);
+          console.log(response);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 2000);
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          setError(true);
+        });
+    }
   };
 
   return (
