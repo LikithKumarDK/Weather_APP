@@ -8,12 +8,17 @@ First clone the repository from Github and switch to the new directory:
     $ git clone git@github.com/USERNAME/{{ project_name }}.git
     $ cd {{ project_name }} 
     
-# Client
-    $ cd client
-    $ mpm install
-    $ node app.js 
-    
 # Server
     $ cd server
     $ npm install
+    $ node app.js
+
+# React
+    $ cd react
+    $ npm install
     $ npm start
+    
+# Angular
+    $ cd angular
+    $ npm install
+    $ ng serve --open / ng s -o
